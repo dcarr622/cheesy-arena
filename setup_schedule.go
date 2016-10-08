@@ -94,6 +94,16 @@ func ScheduleGeneratePostHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/setup/schedule", 302)
 }
 
+func ScheduleRecreateDefensesPostHandler(w http.ResponseWriter, r *http.Request) {
+	matches, _ := db.GetMatchesByType("qualification")
+	teams, _ := db.GetAllTeams()
+	randomizeDefenses(matches, len(teams))
+	for _, match := range matches {
+		db.SaveMatch(&match)
+	}
+	http.Redirect(w, r, "/reports/pdf/defenses/qualification", 302)
+}
+
 // Saves the generated schedule to the database.
 func ScheduleSavePostHandler(w http.ResponseWriter, r *http.Request) {
 	if !UserIsAdmin(w, r) {

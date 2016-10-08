@@ -176,6 +176,7 @@ func newHandler() http.Handler {
 	router.HandleFunc("/setup/schedule", ScheduleGetHandler).Methods("GET")
 	router.HandleFunc("/setup/schedule/generate", ScheduleGeneratePostHandler).Methods("POST")
 	router.HandleFunc("/setup/schedule/save", ScheduleSavePostHandler).Methods("POST")
+	router.HandleFunc("/setup/schedule/recreate_defenses", ScheduleRecreateDefensesPostHandler).Methods("POST")
 	router.HandleFunc("/setup/alliance_selection", AllianceSelectionGetHandler).Methods("GET")
 	router.HandleFunc("/setup/alliance_selection", AllianceSelectionPostHandler).Methods("POST")
 	router.HandleFunc("/setup/alliance_selection/start", AllianceSelectionStartHandler).Methods("POST")
