@@ -417,7 +417,7 @@ func getTbaRequest(url string) (*http.Response, error) {
 
 func createTbaScoringBreakdown(match *Match, matchResult *MatchResult, alliance string) *TbaScoreBreakdown {
 	tbaDefenseNames := map[string]string{"CDF": "A_ChevalDeFrise", "M": "B_Moat", "R": "B_Ramparts",
-		"RW": "D_RockWall", "RT": "D_RoughTerrain"}
+		"RW": "D_RockWall", "RT": "D_RoughTerrain", "SP": "D_SallyPort"}
 	var score *Score
 	var opponentScore *Score
 	var scoreSummary *ScoreSummary
