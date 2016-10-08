@@ -104,6 +104,24 @@ func ScheduleRecreateDefensesPostHandler(w http.ResponseWriter, r *http.Request)
 	http.Redirect(w, r, "/reports/pdf/defenses/qualification", 302)
 }
 
+// Publishes the schedule in the database to TBA
+func ScheduleRepublishPostHandler(w http.ResponseWriter, r *http.Request) {
+	if eventSettings.TbaPublishingEnabled {
+		// Publish schedule to The Blue Alliance.
+		err := DeletePublishedMatches()
+		if err != nil {
+			http.Error(w, "Failed to delete published matches: "+err.Error(), 500)
+			return
+		}
+		err = PublishMatches()
+		if err != nil {
+			http.Error(w, "Failed to publish matches: "+err.Error(), 500)
+			return
+		}
+	}
+
+	http.Redirect(w, r, "/setup/schedule", 302)
+}
 // Saves the generated schedule to the database.
 func ScheduleSavePostHandler(w http.ResponseWriter, r *http.Request) {
 	if !UserIsAdmin(w, r) {
