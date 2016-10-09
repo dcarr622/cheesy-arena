@@ -19,16 +19,16 @@ html {
   left: -50%;
   bottom: 70px;
   margin: 0 auto;
-  height: 104px;
+  height: 200px;
   background-color: #fff;
   border: 1px solid #222;
   color: #222;
-  font-size: 22px;
+  font-size: 35px;
 }
 .teams {
   width: 40px;
   height: 100%;
-  line-height: 26px;
+  line-height: 35px;
   text-align: center;
   display: table;
   font-family: "FuturaLT";
@@ -63,25 +63,25 @@ html {
   position: absolute;
   right: -1px;
   left: -1px;
-  height: 30px;
+  height: 70px;
   bottom: 0px;
-  line-height: 30px;
+  line-height: 70px;
   background-color: #444;
   border: 1px solid #222;
   padding: 0px 5px;
   font-family: "FuturaLT";
-  font-size: 15px;
+  font-size: 35px;
   color: #fff;
   z-index: -1;
 }
 #matchCircle {
   position: absolute;
-  left: -75px;
+  left: -125px;
   bottom: 50px;
   margin: 0 auto;
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   background-color: #fff;
   border: 1px solid #222;
 }
@@ -91,8 +91,8 @@ html {
   margin: 0px 5px;
   text-align: center;
   font-family: "FuturaLTBold";
-  font-size: 55px;
-  line-height: 104px;
+  font-size: 100px;
+  line-height: 250px;
   color: #fff;
   opacity: 0;
 }
@@ -104,7 +104,7 @@ html {
   opacity: 0;
 }
 .tower {
-  font-size: 20px;
+  font-size: 35px;
   font-family: "FuturaLTBold";
   color: #fff;
 }
@@ -126,16 +126,16 @@ html {
 }
 #logo {
   position: relative;
-  top: 15px;
-  height: 60px;
+  top: 40px;
+  height: 150px;
 }
 #matchTime {
   position: relative;
   top: 35px;
-  height: 60px;
+  height: 80px;
   color: #222;
   font-family: "FuturaLTBold";
-  font-size: 32px;
+  font-size: 40px;
   opacity: 0;
 }
 #blindsContainer {
