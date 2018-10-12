@@ -14,8 +14,8 @@ var sponsorImageTemplate = Handlebars.compile($("#sponsorImageTemplate").html())
 var sponsorTextTemplate = Handlebars.compile($("#sponsorTextTemplate").html());
 
 // Constants for overlay positioning. The CSS is the source of truth for the values that represent initial state.
-var centeringDown = $("#centering").css("bottom");
-var centeringUp = "0px";
+var centeringOut = "-200px";
+var centeringIn = $("#centering").css("top");
 var logoUp = "10px";
 var logoDown = $("#logo").css("top");
 var scoreIn = $(".score").css("width");
@@ -188,7 +188,7 @@ var handleLowerThird = function(data) {
 };
 
 var transitionBlankToIntro = function(callback) {
-  $("#centering").transition({queue: false, bottom: centeringUp}, 500, "ease", function() {
+  $("#centering").transition({queue: false, top: centeringIn}, 500, "ease", function() {
     $(".avatars").show();
     $(".avatars").css("opacity", 1);
     $(".teams").transition({queue: false, width: teamsOut}, 100, "linear", function() {
@@ -221,13 +221,13 @@ var transitionIntroToBlank = function(callback) {
     $(".teams").transition({queue: false, width: teamsIn}, 500, "ease", function() {
       $(".avatars").css("opacity", 0);
       $(".avatars").hide();
-      $("#centering").transition({queue: false, bottom: centeringDown}, 1000, "ease", callback);
+      $("#centering").transition({queue: false, top: centeringOut}, 1000, "ease", callback);
     });
   });
 };
 
 var transitionBlankToInMatch = function(callback) {
-  $("#centering").transition({queue: false, bottom: centeringUp}, 500, "ease", function() {
+  $("#centering").transition({queue: false, top: centeringIn}, 500, "ease", function() {
     $(".teams").transition({queue: false, width: teamsOut}, 100, "linear", function() {
       $("#logo").transition({queue: false, top: logoUp}, 500, "ease");
       $(".score").transition({queue: false, width: scoreOut}, 500, "ease", function() {
@@ -267,7 +267,7 @@ var transitionInMatchToBlank = function(callback) {
     $("#logo").transition({queue: false, top: logoDown}, 500, "ease");
     $(".score").transition({queue: false, width: scoreIn}, 500, "ease");
     $(".teams").transition({queue: false, width: teamsIn}, 500, "ease", function() {
-      $("#centering").transition({queue: false, bottom: centeringDown}, 1000, "ease", callback);
+      $("#centering").transition({queue: false, top: centeringOut}, 1000, "ease", callback);
     });
   });
 };
@@ -398,7 +398,7 @@ var transitionSponsorToScore = function(callback) {
 };
 
 var transitionBlankToTimeout = function(callback) {
-  $("#centering").transition({queue: false, bottom: centeringUp}, 500, "ease", function () {
+  $("#centering").transition({queue: false, top: centeringIn}, 500, "ease", function () {
     $("#logo").transition({queue: false, top: logoUp}, 500, "ease", function() {
       $("#matchTime").transition({queue: false, opacity: 1}, 750, "ease", callback);
     });
@@ -422,7 +422,7 @@ var transitionIntroToTimeout = function(callback) {
 var transitionTimeoutToBlank = function(callback) {
   $("#matchTime").transition({queue: false, opacity: 0}, 300, "linear", function() {
     $("#logo").transition({queue: false, top: logoDown}, 500, "ease", function() {
-      $("#centering").transition({queue: false, bottom: centeringDown}, 1000, "ease", callback);
+      $("#centering").transition({queue: false, top: centeringOut}, 1000, "ease", callback);
     });
   });
 };
